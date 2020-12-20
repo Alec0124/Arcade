@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    display: flex;
+    justify-content: space-around;
+}
+.whack-a-mole {
+        background-color: grey;
+        display: flex;
+        flex-flow: column nowrap;
+        width: 800px;
+        height: 800px;
+}
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 50%; /* Full width (cover the whole page) */
+    height: 50%; /* Full height (cover the whole page) */
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    background-color: rgba(0,0,255,0.7); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+    text-align: center;
+    padding: 5% 0px;
+}
+.overlay.active {
+    display: block;
+}
+.overlay-text span {
+    font-size: 24pt;
+}
+button {
+    height: 100px;
+    width: 200px;
+    box-shadow: 2px 4px 6px 8px lightblue;
+}
+.display {
+    display: grid;
+    flex: 1 0;
+    grid-template: 125px 125px / repeat(3, 1fr);
+    background-color: royalblue;
+    background-image: url("img/woodTexture.jpg");
+}
+.highScoreText, .scoreText, .timerText {
+    background-color: red;
+    border-radius: 25%;
+    color: black;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    font-size: 20px;
+    font-family: Impact;
+    font-weight: 900;
+    letter-spacing: 5px;
+    border: 20px solid orange;
+}
+.highScoreText {
+    grid-area: 1 / 1 / 2 / 2 ;
+
+}
+.scoreText {
+    grid-area: 1 / 2 / 2 / 3 ;
+}
+.timerText {
+    grid-area: 1 / 3 / 2 / 4 ;
+}
+.highScore, .score, .timer {
+    background-color: black;
+    color: red;
+    margin: 20px;
+    text-align: center;
+    padding: 20px 0px;
+    font-size: 48px;
+    letter-spacing: 16px;
+}
+.highScore {
+    grid-area: 2 / 1 / 3 / 2; 
+}
+.score {
+    grid-area: 2 / 2 / 3 / 3; 
+}
+.timer {
+    grid-area: 2 / 3 / 3 / 4; 
+}
+.board {
+    padding: 50px;
+    display: grid;
+    grid-template: repeat(4, 1fr) / repeat(5, 1fr);
+    gap: 10px;
+    flex: 4 0 10px;
+    background-color: green;
+    background-image: url("img/groundTexture.jpg");
+    
+}
+.hole {
+    background-color: black;
+    border-radius: 50%;
+    justify-self: center;
+    height: 100px;
+    width: 100%;
+    /* align-self: center; */
+}
+#hole1 {
+    grid-area: 2 / 1 / 3 / 2;
+}
+#hole2 {
+    grid-area: 2 / 3 / 3 / 4;
+}
+#hole3 {
+    grid-area: 2 / 5 / 3 / 6;
+}
+#hole4 {
+    grid-area: 4 / 2 / 5 / 3;
+}
+#hole5 {
+    grid-area: 4 / 4 / 5 / 5;
+}
+.mole {
+    width: 100px;
+    height: 0px;
+    transition: 1s;
+    align-self: end;
+}
+#mole1 {
+    grid-area: 1 / 1 / 3 / 2;
+}
+#mole2 {
+    grid-area: 1 / 3 / 3 / 4;
+}
+#mole3 {
+    grid-area: 1 / 5 / 3 / 6;
+}
+#mole4 {
+    grid-area: 3 / 2 / 5 / 3;
+}
+#mole5 {
+    grid-area: 3 / 4 / 5 / 5;
+}
+.mole.active {
+    transition: 1s;
+    height: 100%;
+}
+.pow {
+    height: 100px;
+    width: 100px;
+    opacity: 100%;
+    transition: 1s;
+}
+.pow.active {
+    transition: 1s;
+    opacity: 0%;
+}
