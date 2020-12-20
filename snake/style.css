@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    display: flex;
+    justify-content: space-around;
+}
+#snake-container {
+    width: 750px;
+    height: 750px;
+    background-color: gray;
+    display: grid;
+
+}
+#display {
+    display: flex;
+}
+#score, #high-score, #snake-length {
+    font-size: 16pt;
+    flex: 1 0 100px;
+}
+.overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 50%; /* Full width (cover the whole page) */
+    height: 50%; /* Full height (cover the whole page) */
+    top: 25%;
+    left: 25%;
+    right: 25%;
+    bottom: 25%;
+    background-color: rgba(0,0,255,0.7); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+    text-align: center;
+    padding: 2%;
+}
+.overlay.active {
+    display: grid;
+    grid-template: 1fr 1fr 1fr 3fr / 1fr 1fr 1fr; 
+    /* get rid of holy grail */
+    gap: 10px 10px;
+    justify-content: stretch;
+    align-content: stretch;
+}
+#overlay-title {
+    grid-area: 1 / 1 / 2 / 4;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 24pt;
+    letter-spacing: 1em;
+    color: orange;
+    /* background-color: greenyellow; */
+}
+.overlay-text {
+grid-area: 2 / 1 / 3 / 4;
+/* background-color: tomato; */
+
+}
+.overlay-text span {
+    font-size: 24pt;
+}
+button {
+    box-shadow: 2px 2px 2px 2px lightblue;
+    /* display: inline; */
+}
+
+#btn-start-game {
+    grid-area: 3 / 1 / 4 / 4;
+    color: white;
+    background-color: teal;
+}
+#btn-difficulty {
+    grid-area: 4 / 1 / 5 / 2;
+}
+#btn-play-area {
+    grid-area: 4 / 2 / 5 / 3;
+}
+#btn-borders {
+    grid-area: 4 / 3 / 5 / 4;
+}
+
+div.cell.apple {
+    background-image: url("img/apple.png");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+.cell.red {
+    background-color: silver;
+
+}
+.cell.blue {
+    background-color: gray;
+
+}
+.cell.snake {
+    background-color: blue;
+    border: 0px none;
+}
